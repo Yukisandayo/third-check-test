@@ -8,7 +8,7 @@
 <h2 class="register-form_title">新規会員登録</h2>
 <h4 class="register-form_sub-heading">STEP1 アカウント情報の登録</h4>
 <div class="register_form-inner">
-    <form method="POST" action="/register/step2">
+    <form method="POST" action="{{ route('register.step1') }}">
     @csrf
         <div class="register-form__group">
             <label class="register-form__label" for="name">お名前</label>
@@ -39,7 +39,7 @@
         </div>
         <input class="register-form__btn btn" type="submit" value="次に進む">
     </form>
-    <a href="" class="link-login">ログインはこちら</a>
+    <a href="/auth.login" class="link-login">ログインはこちら</a>
 </div>
 
 @endsection('content')
