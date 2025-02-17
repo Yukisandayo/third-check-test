@@ -12,7 +12,7 @@
     @csrf
         <div class="register-form__group">
             <label class="register-form__label" for="weight">現在の体重</label>
-            <input class="register-form__input" type="number" name="weight" id="weight" placeholder="現在の体重を入力">
+            <input class="register-form__input" type="number" name="weight" id="weight" step="0.1" value="{{ old('weight') }}" placeholder="現在の体重を入力">
             <p class="register-form__error-message">
                 @error('weight')
                 {{ $message }}
@@ -21,7 +21,7 @@
         </div>
         <div class="register-form__group">
             <label class="register-form__label" for="target-weight">目標の体重</label>
-            <input class="register-form__input" type="number" name="target-weight" id="target-weight" placeholder="目標の体重を入力">
+            <input class="register-form__input" type="number" name="target_weight" id="target_weight" step="0.1" value="{{ old('target_weight') }}" placeholder="目標の体重を入力">
             <p class="register-form__error-message">
                 @error('target-weight')
                 {{ $message }}

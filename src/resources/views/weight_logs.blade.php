@@ -23,7 +23,7 @@
     <div class="weight_logs-board__header">
         <div class="search-form">
             @csrf
-            <form method="GET" action="{{ route('weight.index') }}">
+            <form method="GET" action="{{ route('weight_logs.search') }}">
                 <input type="date" name="start_date" value="{{ request('start_date') }}">
                 <input type="date" name="end_date" value="{{ request('end_date') }}">
                 <button type="submit">検索</button>
@@ -51,7 +51,11 @@
                     <td>{{ $log->weight }} kg</td>
                     <td>{{ $log->calories }} cal</td>
                     <td>{{ $log->exercise_time }}</td>
-                    <td><a href="{{ route('weight.edit', $log->id) }}">✎</a></td>
+                    <td>
+                        <a href="{{ route('weight-log.show', $log->id) }}">
+                            <i class="fas fa-pencil-alt"></i> <!-- 鉛筆マーク -->
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
@@ -65,7 +69,7 @@
 <div id="modal" class="modal">
     <div class="modal-content">
         <h2>Weight Logを追加</h2>
-        <form action="{{ route('weight.store') }}" method="POST">
+        <form action="{{ route('weight_log.store') }}" method="POST">
             @csrf
             <label>日付:</label>
             <input type="date" name="date" required>
