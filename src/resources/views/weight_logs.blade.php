@@ -52,7 +52,7 @@
                     <td>{{ $log->calories }} cal</td>
                     <td>{{ $log->exercise_time }}</td>
                     <td>
-                        <a href="{{ route('weight-log.show', $log->id) }}">
+                        <a href="{{ route('weight_log.show', $log->id) }}">
                             <i class="fas fa-pencil-alt"></i> <!-- 鉛筆マーク -->
                         </a>
                     </td>

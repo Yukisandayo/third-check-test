@@ -7,7 +7,7 @@
 @section('content')
 <h2 class="login-form_title">ログイン</h2>
 <div class="login_form-inner">
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login.store') }}">
     @csrf
         <div class="login-form__group">
             <label class="login-form__label" for="email">メールアドレス</label>
@@ -29,7 +29,7 @@
         </div>
         <input class="login-form__btn btn" type="submit" value="ログイン">
     </form>
-    <a href="/auth.register.step1" class="link-login">アカウント作成はこちら</a>
+    <a href="{{ route('register') }}" class="link-login">アカウント作成はこちら</a>
 </div>
 
 @endsection('content')

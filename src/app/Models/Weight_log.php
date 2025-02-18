@@ -18,8 +18,6 @@ class Weight_log extends Model
         'exercise_content',
     ];
 
-    protected $table = 'weights_logs';
-
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWeightsTargetTable extends Migration
+class CreateWeightLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateWeightsTargetTable extends Migration
      */
     public function up()
     {
-        Schema::create('weights_target', function (Blueprint $table) {
+        Schema::create('weight_logs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->decimal('target_weight', 4, 1);
+            $table->date('date');
+            $table->decimal('weight', 4, 1);
+            $table->integer('calories');
+            $table->time('exercise_time');
+            $table->text('exercise_content');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ class CreateWeightsTargetTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('weights_target');
+        Schema::dropIfExists('weight_logs');
     }
 }

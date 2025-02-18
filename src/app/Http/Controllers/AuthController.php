@@ -68,12 +68,12 @@ class AuthController extends Controller
             ]);
 
         });
-
         return redirect()->route('admin');
     }
 
     public function admin()
     {
+        $user_id = Auth::id();
         $targetWeight = Weight_target::where('user_id', $user_id)->first();
 
         $latestWeightLog = Weight_log::where('user_id', $user_id)
@@ -82,8 +82,27 @@ class AuthController extends Controller
 
         $weightLogs = Weight_log::where('user_id', $user_id)
                         ->orderBy('date', 'desc')
-                        ->paginate(10);
+                        ->paginate(8);
 
-        return view('weight.logs', compact('targetWeight', 'latestWeightLog', 'weightLogs'));
+        return view('weight_logs', compact('targetWeight', 'latestWeightLog', 'weightLogs'));
+    }
+
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
+    public function login(LoginRequest $request)
+    {
+        if (Auth::attempt($request->validated())) {
+            return redirect()->route('admin');
+        }
+        return back();
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 }

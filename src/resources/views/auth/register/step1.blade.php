@@ -39,7 +39,7 @@
         </div>
         <input class="register-form__btn btn" type="submit" value="次に進む">
     </form>
-    <a href="/auth.login" class="link-login">ログインはこちら</a>
+    <a href="{{ route('login') }}" class="link-login">ログインはこちら</a>
 </div>
 
 @endsection('content')

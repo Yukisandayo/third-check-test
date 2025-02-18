@@ -17,8 +17,8 @@
                 <div class="header__inner">
                     <h2 class="header__title">PiGLy</h2>
                     <div class="header__navigation">
-                        <a href="" class="header__link">目標体重設定</a>
-                        <form action="{{ 'goal_setting' }}" method="post">
+                        <a href="{{ route('goal_setting') }}" class="header__link">目標体重設定</a>
+                        <form action="{{ route('logout') }}" method="post">
                         @csrf
                             <input class="header__link" type="submit" value="ログアウト">
                         </form>
